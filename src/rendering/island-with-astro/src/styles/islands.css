@@ -1,0 +1,162 @@
+/**
+ * GLOBAL STYLES FOR ISLAND COMPONENTS
+ * 
+ * Astro scopes styles by default, but these are shared
+ * across multiple island components
+ */
+
+/* Counter Component Styles */
+.counter {
+  text-align: center;
+}
+
+.counter h4 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+.counter-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.count-value {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #4f46e5;
+  line-height: 1;
+}
+
+.count-label {
+  font-size: 1rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+}
+
+.counter-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.counter-btn {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 80px;
+}
+
+.counter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.counter-btn:active {
+  transform: translateY(0);
+}
+
+.counter-btn.increment {
+  background: #10b981;
+  color: white;
+}
+
+.counter-btn.decrement {
+  background: #ef4444;
+  color: white;
+}
+
+.counter-btn.reset {
+  background: #6b7280;
+  color: white;
+}
+
+.counter-note {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Social Buttons Component Styles */
+.social-buttons {
+  text-align: center;
+}
+
+.social-buttons h4 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.social-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.social-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.social-btn:active {
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  font-size: 2rem;
+}
+
+.social-label {
+  font-size: 0.9rem;
+}
+
+.social-count {
+  background: rgba(255,255,255,0.3);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  min-width: 40px;
+}
+
+.social-note {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+.social-note code {
+  background: rgba(79, 70, 229, 0.1);
+  color: #4f46e5;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+}
+

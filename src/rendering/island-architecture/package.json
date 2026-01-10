@@ -1,0 +1,19 @@
+{
+  "name": "islands-architecture-demo",
+  "version": "1.0.0",
+  "description": "Islands Architecture pattern demonstration with Preact",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "preact": "^10.19.3",
+    "htm": "^3.1.1"
+  },
+  "devDependencies": {
+    "vite": "^5.0.11"
+  }
+}
+

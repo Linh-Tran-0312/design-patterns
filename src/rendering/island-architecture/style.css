@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f5f5f5;
+}
+
+.layout {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Static Islands Styles */
+.intro {
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.meta {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.body {
+    margin-bottom: 40px;
+}
+
+.body p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.body h2 {
+    font-size: 1.8rem;
+    margin: 30px 0 15px;
+    color: #2c3e50;
+}
+
+.body ul {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+.body li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+
+.article-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 30px 0;
+}
+
+/* Dynamic Island Styles */
+.social-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 40px 0;
+    border: 2px dashed #4CAF50;
+}
+
+.social-section h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.social-section::before {
+    content: "🏝️ INTERACTIVE ISLAND (with JavaScript)";
+    display: block;
+    font-size: 0.8rem;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+}
+
+.social-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.social-button.twitter {
+    background: #1DA1F2;
+}
+
+.social-button.facebook {
+    background: #4267B2;
+}
+
+.social-button.linkedin {
+    background: #0077B5;
+}
+
+.social-button.email {
+    background: #666;
+}
+
+.share-count {
+    background: rgba(255,255,255,0.3);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+/* Static Footer Styles */
+.footer-content {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.tags {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #e3f2fd;
+    color: #1976d2;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Performance indicator */
+.perf-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-size: 0.9rem;
+    z-index: 1000;
+}
+
+.perf-indicator strong {
+    display: block;
+    margin-bottom: 5px;
+}
+

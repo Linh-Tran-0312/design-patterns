@@ -1,0 +1,349 @@
+---
+/**
+ * ASTRO PAGE: Islands Architecture Demo
+ * 
+ * This demonstrates TRUE Islands Architecture:
+ * - Most of the page is static HTML (rendered at build time)
+ * - Interactive "islands" use client:* directives
+ * - Each island hydrates independently
+ * 
+ * Based on: https://docs.astro.build/en/concepts/islands/
+ */
+import Layout from '../layouts/Layout.astro';
+import SocialButtons from '../components/SocialButtons';
+import Counter from '../components/Counter';
+---
+
+<Layout title="Islands Architecture with Astro">
+	<!-- STATIC CONTENT: No JavaScript -->
+	<article class="content">
+		<header class="intro">
+			<h1 class="title">Understanding Islands Architecture</h1>
+			<p class="subtitle">Built with Astro - The Islands Framework</p>
+			<p class="meta">By Jane Doe • January 10, 2026 • 5 min read</p>
+		</header>
+
+		<!-- STATIC CONTENT: Pure HTML -->
+		<section class="body">
+			<p>
+				Astro pioneered the <strong>Islands Architecture</strong> pattern, which renders 
+				the majority of your page to fast, static HTML with smaller "islands" of JavaScript 
+				added only when interactivity is needed.
+			</p>
+			
+			<img 
+				src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=400&fit=crop" 
+				alt="Mountain landscape representing islands"
+				class="article-image"
+			/>
+
+			<h2>Key Benefits</h2>
+			<ul>
+				<li><strong>Fast by Default:</strong> Static HTML loads instantly</li>
+				<li><strong>Selective Hydration:</strong> Only interactive components get JavaScript</li>
+				<li><strong>Framework Agnostic:</strong> Use React, Preact, Vue, Svelte, Solid - or mix them!</li>
+				<li><strong>SEO Friendly:</strong> All content is server-rendered</li>
+			</ul>
+
+			<p>
+				Below you'll see two interactive "islands" - a counter and social sharing buttons. 
+				Notice how they load independently!
+			</p>
+		</section>
+
+		<!-- 🏝️ ISLAND #1: Counter Component -->
+		<section class="island-demo">
+			<h3>Island #1: Interactive Counter</h3>
+			<p>This counter is an interactive Preact component. Try clicking it!</p>
+			
+			<div class="island-container">
+				<!-- client:load = Hydrate immediately on page load -->
+				<Counter client:load />
+			</div>
+			
+			<div class="island-explanation">
+				<strong>🔧 Hydration: client:load</strong>
+				<p>This island loads JavaScript immediately for instant interactivity.</p>
+			</div>
+		</section>
+
+		<!-- 🏝️ ISLAND #2: Social Buttons -->
+		<section class="island-demo">
+			<h3>Island #2: Social Share Buttons</h3>
+			<p>These buttons are interactive but load only when visible in the viewport.</p>
+			
+			<div class="island-container">
+				<!-- client:visible = Hydrate when scrolled into view -->
+				<SocialButtons client:visible />
+			</div>
+			
+			<div class="island-explanation">
+				<strong>🔧 Hydration: client:visible</strong>
+				<p>This island only loads JavaScript when you scroll it into view (lazy loading!).</p>
+			</div>
+		</section>
+
+		<!-- STATIC CONTENT: More HTML without JS -->
+		<section class="comparison">
+			<h2>How Islands Architecture Works</h2>
+			
+			<div class="comparison-grid">
+				<div class="comparison-item">
+					<h3>❌ Traditional SPA</h3>
+					<ul>
+						<li>Entire page is JavaScript</li>
+						<li>Everything hydrates at once</li>
+						<li>Heavy initial bundle</li>
+						<li>Slow Time to Interactive</li>
+					</ul>
+				</div>
+				
+				<div class="comparison-item highlight">
+					<h3>✅ Islands Architecture</h3>
+					<ul>
+						<li>Mostly static HTML</li>
+						<li>Islands hydrate independently</li>
+						<li>Minimal JavaScript</li>
+						<li>Fast Time to Interactive</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- STATIC FOOTER -->
+		<footer class="footer-content">
+			<h2>Client Directives in Astro</h2>
+			<p>Astro provides several directives to control when islands hydrate:</p>
+			
+			<ul class="directives-list">
+				<li><code>client:load</code> - Hydrate immediately on page load</li>
+				<li><code>client:idle</code> - Hydrate when browser is idle</li>
+				<li><code>client:visible</code> - Hydrate when element is visible</li>
+				<li><code>client:media</code> - Hydrate based on CSS media query</li>
+				<li><code>client:only</code> - Skip server rendering, client-side only</li>
+			</ul>
+			
+			<div class="tags">
+				<span class="tag">#Astro</span>
+				<span class="tag">#IslandsArchitecture</span>
+				<span class="tag">#WebPerformance</span>
+			</div>
+		</footer>
+
+		<div class="perf-indicator">
+			<strong>⚡ Astro Islands Architecture</strong>
+			<div>Static HTML: 95% of this page</div>
+			<div>Interactive Islands: 5% (Counter + Social Buttons)</div>
+			<div style="margin-top: 5px; font-size: 0.8rem; opacity: 0.9;">
+				Open DevTools → Disable JS → Page still works! ✅
+			</div>
+		</div>
+	</article>
+</Layout>
+
+<style>
+	.content {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 2rem;
+	}
+
+	.intro {
+		border-bottom: 2px solid #e0e0e0;
+		padding-bottom: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+		background: linear-gradient(45deg, #4f46e5, #06b6d4);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.subtitle {
+		font-size: 1.3rem;
+		color: #666;
+		margin-bottom: 1rem;
+	}
+
+	.meta {
+		color: #999;
+		font-size: 0.9rem;
+	}
+
+	.body p {
+		margin-bottom: 1.5rem;
+		line-height: 1.7;
+	}
+
+	.body h2 {
+		font-size: 1.8rem;
+		margin: 2rem 0 1rem;
+		color: #2c3e50;
+	}
+
+	.body ul {
+		margin: 1.5rem 0;
+		padding-left: 2rem;
+	}
+
+	.body li {
+		margin-bottom: 0.75rem;
+		line-height: 1.6;
+	}
+
+	.article-image {
+		width: 100%;
+		height: auto;
+		border-radius: 12px;
+		margin: 2rem 0;
+		box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+	}
+
+	.island-demo {
+		background: #f8f9fa;
+		padding: 2rem;
+		border-radius: 12px;
+		margin: 2rem 0;
+		border: 3px dashed #4f46e5;
+	}
+
+	.island-demo h3 {
+		margin-bottom: 1rem;
+		color: #4f46e5;
+	}
+
+	.island-container {
+		background: white;
+		padding: 2rem;
+		border-radius: 8px;
+		margin: 1rem 0;
+	}
+
+	.island-explanation {
+		margin-top: 1rem;
+		padding: 1rem;
+		background: rgba(79, 70, 229, 0.1);
+		border-radius: 8px;
+		border-left: 4px solid #4f46e5;
+	}
+
+	.island-explanation strong {
+		display: block;
+		margin-bottom: 0.5rem;
+		color: #4f46e5;
+	}
+
+	.island-explanation p {
+		margin: 0;
+		font-size: 0.9rem;
+		color: #666;
+	}
+
+	.comparison {
+		margin: 3rem 0;
+	}
+
+	.comparison-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	.comparison-item {
+		padding: 1.5rem;
+		border-radius: 8px;
+		background: #f8f9fa;
+	}
+
+	.comparison-item.highlight {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+	}
+
+	.comparison-item h3 {
+		margin-bottom: 1rem;
+	}
+
+	.comparison-item ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.comparison-item li {
+		padding: 0.5rem 0;
+		border-bottom: 1px solid rgba(255,255,255,0.2);
+	}
+
+	.footer-content {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 2px solid #e0e0e0;
+	}
+
+	.directives-list {
+		background: #f8f9fa;
+		padding: 1.5rem;
+		border-radius: 8px;
+		list-style: none;
+	}
+
+	.directives-list li {
+		padding: 0.75rem;
+		margin-bottom: 0.5rem;
+		background: white;
+		border-radius: 4px;
+		font-family: monospace;
+	}
+
+	.directives-list code {
+		color: #4f46e5;
+		font-weight: 600;
+	}
+
+	.tags {
+		margin-top: 2rem;
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.tag {
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		background: #e3f2fd;
+		color: #1976d2;
+		border-radius: 20px;
+		font-size: 0.9rem;
+	}
+
+	.perf-indicator {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+		padding: 1rem 1.5rem;
+		border-radius: 12px;
+		box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+		font-size: 0.9rem;
+		z-index: 1000;
+		max-width: 280px;
+	}
+
+	.perf-indicator strong {
+		display: block;
+		margin-bottom: 0.5rem;
+		font-size: 1rem;
+	}
+
+	.perf-indicator div {
+		margin: 0.25rem 0;
+	}
+</style>
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islands Architecture Demo - Blog Post</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="layout">
+        <article class="content">
+            <!-- STATIC ISLAND: No JavaScript needed -->
+            <section class="intro">
+                <h1 class="title">Understanding Islands Architecture</h1>
+                <p class="subtitle">A Modern Approach to Web Performance</p>
+                <p class="meta">By Jane Doe • January 10, 2026 • 5 min read</p>
+            </section>
+
+            <!-- STATIC ISLAND: Pure HTML content -->
+            <section class="body">
+                <p>
+                    The Islands Architecture is a revolutionary approach to building web pages 
+                    that combines the best of static and dynamic content. Instead of shipping 
+                    JavaScript for the entire page, we only hydrate the interactive parts.
+                </p>
+                
+                <img 
+                    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=400&fit=crop" 
+                    alt="Mountain landscape"
+                    class="article-image"
+                />
+
+                <h2>Key Benefits</h2>
+                <ul>
+                    <li><strong>Better Performance:</strong> 83% reduction in JavaScript compared to traditional SPAs</li>
+                    <li><strong>Improved SEO:</strong> All content is server-rendered and available immediately</li>
+                    <li><strong>Progressive Enhancement:</strong> Core content loads first, interactivity follows</li>
+                    <li><strong>Isolated Components:</strong> Each island is independent and self-contained</li>
+                </ul>
+
+                <p>
+                    The next section contains an interactive "island" - a social sharing component 
+                    that includes its own JavaScript. Notice how the rest of the page is pure HTML.
+                </p>
+            </section>
+
+            <!-- DYNAMIC ISLAND: Interactive component with JavaScript -->
+            <section class="social-section">
+                <h3>Share this article</h3>
+                
+                <!-- PRE-RENDERED HTML: This component's HTML already exists! -->
+                <!-- JavaScript will only "hydrate" it (attach event listeners) -->
+                <div id="social-buttons" class="social-buttons">
+                    <button class="social-button twitter" data-platform="twitter">
+                        <span>🐦 Twitter</span>
+                        <span class="share-count">42</span>
+                    </button>
+                    
+                    <button class="social-button facebook" data-platform="facebook">
+                        <span>👍 Facebook</span>
+                        <span class="share-count">38</span>
+                    </button>
+                    
+                    <button class="social-button linkedin" data-platform="linkedin">
+                        <span>💼 LinkedIn</span>
+                        <span class="share-count">25</span>
+                    </button>
+                    
+                    <button class="social-button email" data-platform="email">
+                        <span>✉️ Email</span>
+                        <span class="share-count">12</span>
+                    </button>
+                </div>
+                
+                <!-- Performance indicator (pre-rendered too!) -->
+                <div class="perf-indicator">
+                    <strong>⚡ Islands Architecture</strong>
+                    <div>HTML pre-rendered, JS adds interactivity!</div>
+                    <div style="margin-top: 5px; font-size: 0.8rem; opacity: 0.9;">
+                        Before JS loads: Buttons visible ✅<br>
+                        After JS loads: Buttons clickable ✅
+                    </div>
+                </div>
+            </section>
+
+            <!-- STATIC ISLAND: More static content -->
+            <section class="footer-content">
+                <h2>Conclusion</h2>
+                <p>
+                    Islands Architecture represents a paradigm shift in how we think about 
+                    web performance. By making interactivity opt-in rather than default, 
+                    we can build faster, more efficient websites.
+                </p>
+                
+                <div class="tags">
+                    <span class="tag">#WebPerformance</span>
+                    <span class="tag">#IslandsArchitecture</span>
+                    <span class="tag">#JavaScript</span>
+                </div>
+            </section>
+        </article>
+    </div>
+
+    <!-- ISLAND HYDRATION: Only load JavaScript for the interactive component -->
+    <script type="module" src="/src/hydrate.js"></script>
+</body>
+</html>
+
